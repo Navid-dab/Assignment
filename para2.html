@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paracetamol/Acetaminophen Information</title>
+    <link rel="shortcut icon" href="images/logo-1.jpg" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary: #3a86ff;
+            --secondary: #8338ec;
+            --accent: #ff006e;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --success: #28a745;
+            --warning: #ffc107;
+            --danger: #dc3545;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7ff;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+        }
+        
+        .logo {
+            height: 80px;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+        }
+        
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            font-size: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: white;
+            bottom: -10px;
+            left: 20%;
+            border-radius: 2px;
+        }
+        
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary);
+            margin-top: 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 50px;
+            height: 2px;
+            background: var(--accent);
+        }
+        
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-highlight {
+            border-left-color: var(--accent);
+        }
+        
+        .formula-img {
+            display: block;
+            margin: 20px auto;
+            max-width: 250px;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background-color: var(--primary);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e9f5ff;
+        }
+        
+        .alert {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+        }
+        
+        .alert-warning {
+            background-color: rgba(255, 193, 7, 0.15);
+            border-left: 4px solid var(--warning);
+            color: #856404;
+        }
+        
+        .alert-icon {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .brand-card {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e9ecef;
+        }
+        
+        .brand-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .brand-img-container {
+            background: linear-gradient(135deg, #f5f7fa, #e4e8f0);
+            padding: 20px;
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .brand-img {
+            max-width: 100%;
+            max-height: 120px;
+            object-fit: contain;
+        }
+        
+        .brand-info {
+            padding: 15px;
+            border-top: 1px solid #e9ecef;
+        }
+        
+        .brand-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
+        
+        .brand-detail {
+            font-size: 0.9rem;
+            color: var(--gray);
+            margin-bottom: 3px;
+        }
+        
+        .brand-price {
+            font-weight: 700;
+            color: var(--primary);
+            margin-top: 10px;
+        }
+        
+        .qr-container {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            border: 1px dashed var(--primary);
+        }
+        
+        .qr-code {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto;
+            padding: 15px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .section-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .pill {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: var(--dark);
+            color: white;
+            border-radius: var(--border-radius);
+        }
+        
+        .references {
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+        
+        .references a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .references a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+        
+        .chemical-formula {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(58, 134, 255, 0.1);
+            border-radius: var(--border-radius);
+            border: 1px dashed var(--primary);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .brands-grid {
+                grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .section-group {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px 15px;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="images/umt.png" alt="UMT Logo" class="logo">
+            <h1>PARACETAMOL/ACETAMINOPHEN</h1>
+            <p>Comprehensive Drug Information</p>
+        </header>
+        
+        <div class="section-group">
+            <div class="card">
+                <h2><i class="fas fa-info-circle"></i> Introduction</h2>
+                <p><strong>Paracetamol</strong> (also known as acetaminophen) is a widely used analgesic and antipyretic drug. It is commonly used for the relief of mild to moderate pain and reduction of fever.</p>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-flask"></i> Chemical Formula</h2>
+                <div class="chemical-formula">
+                    C<sub>8</sub>H<sub>9</sub>NO<sub>2</sub>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-atom"></i> Structural Formula</h2>
+                <img src="https://sielc.com/wp-content/uploads/2004/03/Acetaminophen-1.png" alt="Paracetamol Structural Formula" class="formula-img">
+            </div>
+        </div>
+        
+        <div class="card card-highlight">
+            <h2><i class="fas fa-bullseye"></i> Indications</h2>
+            <p>Paracetamol is indicated for:</p>
+            <div style="display: flex; flex-wrap: wrap; margin-top: 15px;">
+                <span class="pill">Headache</span>
+                <span class="pill">Ear Pain</span>
+                <span class="pill">Period Pain</span>
+                <span class="pill">Post-Operative Pain</span>
+                <span class="pill">Fever Reduction</span>
+                <span class="pill">Post-vaccine Reaction</span>
+                <span class="pill">Musculoskeletal Pain</span>
+                <span class="pill">Gouty Arthritis</span>
+            </div>
+            <p style="margin-top: 15px;">It is available both by prescription and over-the-counter (OTC) in various formulations.</p>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-calculator"></i> Dosage Information</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Adult</th>
+                        <th>Neonate</th>
+                        <th>Paediatric</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Dose</td>
+                        <td>500-1000mg</td>
+                        <td>12mg/kg</td>
+                        <td>10-15mg/kg</td>
+                    </tr>
+                    <tr>
+                        <td>Frequency</td>
+                        <td>Every 6 hours</td>
+                        <td>Every 6 hours</td>
+                        <td>Every 6 hours</td>
+                    </tr>
+                    <tr>
+                        <td>Route</td>
+                        <td>Oral (PO)</td>
+                        <td>Oral</td>
+                        <td>Oral</td>
+                    </tr>
+                    <tr>
+                        <td>Max Daily Dose</td>
+                        <td>4g</td>
+                        <td>As prescribed</td>
+                        <td>As prescribed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="section-group">
+            <div class="card">
+                <h2><i class="fas fa-capsules"></i> Available Forms</h2>
+                <ul style="columns: 2; list-style-type: none; padding: 0;">
+                    <li><i class="fas fa-tablet"></i> Tablet</li>
+                    <li><i class="fas fa-pills"></i> Capsule</li>
+                    <li><i class="fas fa-vial"></i> IV Infusion</li>
+                    <li><i class="fas fa-tint"></i> Drops</li>
+                    <li><i class="fas fa-glass-whiskey"></i> Suspension</li>
+                    <li><i class="fas fa-bong"></i> Suppository</li>
+                    <li><i class="fas fa-bolt"></i> Effervescent</li>
+                    <li><i class="fas fa-tablet-alt"></i> ODT</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-chart-line"></i> Pharmacokinetics</h2>
+                <ul>
+                    <li><strong>Absorption:</strong> 88% oral bioavailability</li>
+                    <li><strong>Distribution:</strong> Vd ~0.9L/Kg</li>
+                    <li><strong>Metabolism:</strong> Hepatic (glucuronidation, sulfation, CYP450)</li>
+                    <li><strong>Excretion:</strong> Renal (urine)</li>
+                    <li><strong>Half-life:</strong> ~2.5 hours</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-cogs"></i> Mechanism of Action</h2>
+                <p>Paracetamol inhibits prostaglandin synthesis in the CNS, with minimal peripheral anti-inflammatory effects. It acts primarily on COX-2 inhibition while having little effect on COX-1.</p>
+            </div>
+        </div>
+        
+        <div class="section-group">
+            <div class="card">
+                <h2><i class="fas fa-exclamation-triangle"></i> Contraindications</h2>
+                <ul>
+                    <li>Hypersensitivity to paracetamol</li>
+                    <li>Severe hepatic impairment</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-baby"></i> Pregnancy & Lactation</h2>
+                <p><strong>Pregnancy Category C</strong> - Use only if clearly needed. Generally considered safe in recommended doses during pregnancy and breastfeeding.</p>
+            </div>
+            
+            <div class="card">
+                <h2><i class="fas fa-exclamation-circle"></i> Side Effects</h2>
+                <ul>
+                    <li>Hepatotoxicity (overdose)</li>
+                    <li>Skin reactions</li>
+                    <li>GI disturbances</li>
+                    <li>Blood disorders (rare)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle alert-icon"></i>
+            <div>
+                <h3 style="margin-top: 0; margin-bottom: 5px;">Important Warning</h3>
+                <p style="margin: 0;"><strong>Do not exceed 4g (8 tablets) in 24 hours.</strong> Overdose can cause severe liver damage. Avoid alcohol while taking paracetamol.</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-prescription-bottle-alt"></i> Available Brands in Pakistan</h2>
+            <div class="brands-grid">
+                <div class="brand-card">
+                    <div class="brand-img-container">
+                        <img src="https://www.dsmonline.pk/media/catalog/product/cache/e626209f6586797a49e0d0a395e17e33/p/a/panadol_500mg_tab_200_s.jpg" alt="Panadol" class="brand-img">
+                    </div>
+                    <div class="brand-info">
+                        <div class="brand-name">Panadol (200 tablets)</div>
+                        <div class="brand-detail">Tablet • 500mg</div>
+                        <div class="brand-price">35.20 Rs</div>
+                    </div>
+                </div>
+                
+                <div class="brand-card">
+                    <div class="brand-img-container">
+                        <img src="https://smarthealer.pk/wp-content/uploads/2024/09/panadol-extra.webp" alt="Panadol Extra" class="brand-img">
+                    </div>
+                    <div class="brand-info">
+                        <div class="brand-name">Panadol Extra (100 tablets)</div>
+                        <div class="brand-detail">Tablet • 500mg + Caffeine</div>
+                        <div class="brand-price">50.00 Rs</div>
+                    </div>
+                </div>
+                
+                <div class="brand-card">
+                    <div class="brand-img-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSt9rXIgoqX6u-Ggfas5c-Rh41-Uk--dQxttJdN4dfZT_qKPapPCe2BAw9A7BQrOpu2Q8&usqp=CAU" alt="Calpol" class="brand-img">
+                    </div>
+                    <div class="brand-info">
+                        <div class="brand-name">Calpol 6 Plus (90mL)</div>
+                        <div class="brand-detail">Suspension • 120mg/5mL</div>
+                        <div class="brand-price">102.77 Rs</div>
+                    </div>
+                </div>
+                
+                <div class="brand-card">
+                    <div class="brand-img-container">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB_eW-gWz8FkJahQn13pzW4jt8Y4_fNC2YDA&s" alt="Febrol" class="brand-img">
+                    </div>
+                    <div class="brand-info">
+                        <div class="brand-name">Febrol (120mg/5mL)</div>
+                        <div class="brand-detail">Suspension</div>
+                        <div class="brand-price">57.95 Rs</div>
+                    </div>
+                </div>
+                
+                <div class="brand-card">
+                    <div class="brand-img-container">
+                        <img src="https://www.dvago.pk/_next/image?url=https%3A%2F%2Fdvago-assets.s3.ap-southeast-1.amazonaws.com%2FProductsImages%2F16849-1.jpg&w=1920&q=50" alt="Panadol Drops" class="brand-img">
+                    </div>
+                    <div class="brand-info">
+                        <div class="brand-name">Panadol Drops (30mL)</div>
+                        <div class="brand-detail">Drops • 100mg/mL</div>
+                        <div class="brand-price">93.59 Rs</div>
+                    </div>
+                </div>
+                
+                <div class="brand-card">
+                    <div class="brand-img-container">
+                        <img src="https://hopepharmacy.pk/cdn/shop/products/image_c06fe683-739d-4451-ba67-f06ef9f73b53.jpg?v=1706774696" alt="Provas" class="brand-img">
+                    </div>
+                    <div class="brand-info">
+                        <div class="brand-name">Provas (1g/100mL)</div>
+                        <div class="brand-detail">IV Infusion</div>
+                        <div class="brand-price">192.85 Rs</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="qr-container">
+            <h2><i class="fas fa-qrcode"></i> Scan for More Information</h2>
+            <img src="images/qrcode-1.png" alt="QR Code" class="qr-code">
+            <p>Scan this QR code to access this information on your mobile device</p>
+        </div>
+        
+        <div class="card">
+            <h2><i class="fas fa-book"></i> References</h2>
+            <div class="references">
+                <ul>
+                    <li><a href="https://go.drugbank.com/" target="_blank"><i class="fas fa-external-link-alt"></i> DrugBank</a></li>
+                    <li><a href="https://www.drugs.com/" target="_blank"><i class="fas fa-external-link-alt"></i> Drugs.com</a></li>
+                    <li><a href="https://search.medscape.com/search?q=%22Paracetamol%22&plr=ref&page=1" target="_blank"><i class="fas fa-external-link-alt"></i> Medscape</a></li>
+                    <li><i class="fas fa-book"></i> PharmaGuide - Medicines in Pakistan</li>
+                    <li><i class="fas fa-book"></i> Lippincott's Pharmacology</li>
+                    <li><a href="https://pillbox.pk/" target="_blank"><i class="fas fa-external-link-alt"></i> Pillbox.pk</a> for pricing information</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>&copy; 2023 Paracetamol Information Portal. All information provided is for educational purposes only.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">
+                <i class="fas fa-info-circle"></i> Consult a healthcare professional before taking any medication.
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
